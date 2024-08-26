@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+.heading{
+    background-color: blueviolet;
+    padding: 10px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+    </style>
     <script>
         function bodyload(){
             fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY&quot")
@@ -40,7 +48,7 @@
     </script>
 </head>
 <body class="container-fluid" onload="bodyload()">
-    <h2>Nasa Api</h2>
+    <h2 class="heading">Nasa Api</h2>
     <table class="table table-hover" >
         <thead>
             <tr>
