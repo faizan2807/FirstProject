@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script type="text/javascript">
+        var BMI;
+        function calculateClick() {
+            var male = document.getElementById("male");
+            var female = document.getElementById("female");
+            var height = document.getElementById("height").value/100;
+            Number(height);
+            var weight = document.getElementById("weight").value
+            console.log(weight)
+            Number(weight);
+            bmi = (weight / (height ));
+            console.log(bmi)
+            document.getElementById("opScreen").innerHTML = ` ${bmi.toFixed(2)} <span>kg/m<sup>2</sup> </span> `;
+            if (male.checked) {
+                if (bmi < 18.5) {
+                    //  alert(`${bmi} UnderWeight`);
+                    document.getElementById("move").style.marginLeft = "10%";
+                } else if (bmi >= 18.5 && bmi <= 24.9) {
+                    // alert(`${bmi} normal`);
+                    document.getElementById("move").style.marginLeft = "30%";
+                } else if (bmi >= 25.0 && bmi <= 29.9) {
+                    // alert(`${bmi} overweight`);
+                    document.getElementById("move").style.marginLeft = "70%";
+                } else if (bmi >= 30.0) {
+                    // alert(`${bmi} obese`);
+                    document.getElementById("move").style.marginLeft = "90%";
+                }
+            } else {
+                if (bmi < 18.5) {
+                    //  alert(`${bmi} UnderWeight`);
+                    document.getElementById("move").style.marginLeft = "10%";
+                } else if (bmi >= 18.5 && bmi <= 24.9) {
+                    // alert(`${bmi} normal`);
+                    document.getElementById("move").style.marginLeft = "30%";
+                } else if (bmi >= 25.0 && bmi <= 29.9) {
+                    // alert(`${bmi} overweight`);
+                    document.getElementById("move").style.marginLeft = "62%";
+                } else if (bmi >= 30.0) {
+                    // alert(`${bmi} obese`);
+                    document.getElementById("move").style.marginLeft = "85%";
+                }
+            }
+        }
+
+
+
+    </script>
+</head>
+
+<body class="container-fluid w-50">
+    <div class="bg-info-subtle m-4 p-2 rounded bg-primary-subtle ms-5">
+        <h2 class="justify-content-center text-center">BMI Calculator</h2>
+        <label for=""><b>Gender</b></label>
+        <div class="row mt-3">
+            <div class="col">
+                <input type="radio" class="form-check-input" name="gender" value="male" id="male"> <span>male</span>
+                <input type="radio" class="form-check-input" name="gender" value="female" id="female"> <span>Female</span>
+            </div>
+        </div>
+        <div class="mt-4 p-2">
+            <span id="Age">Age (1 Year or above)*</span><br>
+            <input type="text" placeholder="Years">
+        </div>
+        <div class="row mt-4 p-2">
+            <div class="col">
+                <span >Height*</span><br>
+                <input type="text" placeholder="cm" id="height">
+            </div>
+            <div class="col">
+                <span>Weight*</span><br>
+                <input type="text" placeholder="kg" id="weight" >
+            </div>
+        </div>
+        <div>
+            <button onclick="calculateClick()" class="text-dark ms-2 mt-3">CALCULATE</button>
+        </div>
+        <div class="row">
+            <div class="col border-black border-bottom rounded  mt-4" id="opScreen"></div>
+        </div>
+        <div id="Result" class="mt-4">
+            <div class="progress">
+                <div class="progress-bar bg-dark  w-25 me-1">Underweight</div>
+                <div class="progress-bar bg-gradient  w-25 me-1">Normal</div>
+                <div class="progress-bar bg-info  w-25 me-1">Overweight</div>
+                <div class="progress-bar bg-danger   w-25 me-1">Obese</div>
+            </div>
+        </div>
+        <div class="w-100">
+            <span class="bi bi-triangle-fill d-inline-block" id="move"></span>
+        </div>
+    </div>
+
+</body>
+
+</html>
